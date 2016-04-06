@@ -1,0 +1,66 @@
+﻿@model DMS.Models.Device
+
+@{
+    ViewBag.Title = "Device Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceDateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceDateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceDateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceDateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceModifiedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeviceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

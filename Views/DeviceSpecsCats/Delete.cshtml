@@ -1,0 +1,64 @@
+﻿@model DMS.Models.DeviceSpecsCat
+
+@{
+    ViewBag.Title = "Delete Categories";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatDateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatDateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatDateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatDateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatModifiedBy)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

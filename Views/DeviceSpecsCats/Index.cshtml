@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DMS.Models.DeviceSpecsCat>
+
+@{
+    ViewBag.Title = "Device Specifications";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatDateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatCreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatDateModified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatModifiedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceSpecsCatName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceSpecsCatDateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceSpecsCatCreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceSpecsCatDateModified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceSpecsCatModifiedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DeviceSpecsCatId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DeviceSpecsCatId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DeviceSpecsCatId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model DMS.Models.DeviceSpecsContent
+
+@{
+    ViewBag.Title = "Devices Specs Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Devices.DeviceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Devices.DeviceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCat.DeviceSpecsCatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCat.DeviceSpecsCatName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsContentVal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsContentVal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsContentDateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsContentDateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsContentCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsContentCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsContentDateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsContentDateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsContentModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsContentModifiedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeviceSpecsContentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

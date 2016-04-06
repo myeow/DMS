@@ -1,0 +1,72 @@
+﻿@model DMS.Models.Device
+
+@{
+    ViewBag.Title = "Delete Devices";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceOwner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceOwner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceDateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceDateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceDateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceDateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceModifiedBy)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

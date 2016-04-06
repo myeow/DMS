@@ -1,0 +1,58 @@
+﻿@model DMS.Models.DeviceSpecsCat
+
+@{
+    ViewBag.Title = "Categories";
+}
+
+<h2>@ViewBag.Title </h2>
+
+<div>
+    <h4>@ViewBag.Title</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatDateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatDateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatCreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatCreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatDateModified)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatDateModified)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceSpecsCatModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceSpecsCatModifiedBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DeviceSpecsCatId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
