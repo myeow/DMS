@@ -48,6 +48,10 @@ namespace DMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DeviceSpecsCatId,DeviceSpecsCatName,DeviceSpecsCatDateCreated,DeviceSpecsCatCreatedBy,DeviceSpecsCatDateModified,DeviceSpecsCatModifiedBy")] DeviceSpecsCat deviceSpecsCat)
         {
+            deviceSpecsCat.DeviceSpecsCatDateCreated    = DateTime.Now;
+            deviceSpecsCat.DeviceSpecsCatDateModified   = DateTime.Now;
+            deviceSpecsCat.DeviceSpecsCatCreatedBy      = User.Identity.Name;
+            deviceSpecsCat.DeviceSpecsCatModifiedBy     = User.Identity.Name;
             if (ModelState.IsValid)
             {
                 db.DeviceSpecsCats.Add(deviceSpecsCat);
@@ -80,10 +84,23 @@ namespace DMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "DeviceSpecsCatId,DeviceSpecsCatName,DeviceSpecsCatDateCreated,DeviceSpecsCatCreatedBy,DeviceSpecsCatDateModified,DeviceSpecsCatModifiedBy")] DeviceSpecsCat deviceSpecsCat)
         {
+            
             if (ModelState.IsValid)
             {
-                db.Entry(deviceSpecsCat).State = EntityState.Modified;
-                db.SaveChanges();
+                var a = db.DeviceSpecsCats.Where(x => x.DeviceSpecsCatId == deviceSpecsCat.DeviceSpecsCatId).FirstOrDefault();
+
+                if (a != null)
+                {
+                    a.DeviceSpecsCatName        = deviceSpecsCat.DeviceSpecsCatName;
+                    a.DeviceSpecsCatDateCreated = a.DeviceSpecsCatDateCreated;
+                    a.DeviceSpecsCatCreatedBy   = a.DeviceSpecsCatCreatedBy;
+                    a.DeviceSpecsCatDateModified = DateTime.Now;
+                    a.DeviceSpecsCatModifiedBy  = User.Identity.Name;
+
+                    db.Entry(a).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                
                 return RedirectToAction("Index");
             }
             return View(deviceSpecsCat);

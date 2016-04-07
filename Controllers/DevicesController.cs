@@ -46,8 +46,12 @@ namespace DMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DeviceId,DeviceName,DeviceOwner,DeviceDateCreated,DeviceCreatedBy,DeviceDateModified,DeviceModifiedBy")] Device device)
+        public ActionResult Create([Bind(Include = "DeviceId,DeviceName,DeviceOwner,DeviceDateOwned,DeviceDateCreated,DeviceCreatedBy,DeviceDateModified,DeviceModifiedBy")] Device device)
         {
+            device.DeviceDateCreated    = DateTime.Now;
+            device.DeviceDateModified   = DateTime.Now;
+            device.DeviceCreatedBy      = User.Identity.Name;
+            device.DeviceModifiedBy     = User.Identity.Name;
             if (ModelState.IsValid)
             {
                 db.Devices.Add(device);
@@ -78,13 +82,27 @@ namespace DMS.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DeviceId,DeviceName,DeviceOwner,DeviceDateCreated,DeviceCreatedBy,DeviceDateModified,DeviceModifiedBy")] Device device)
+        public ActionResult Edit([Bind(Include = "DeviceId,DeviceName,DeviceOwner,DeviceDateOwned,DeviceDateCreated,DeviceCreatedBy,DeviceDateModified,DeviceModifiedBy")] Device device)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(device).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                var a = db.Devices.Where(x => x.DeviceId == device.DeviceId).FirstOrDefault();
+
+                if (a != null)
+                {
+                    a.DeviceName        = device.DeviceName;
+                    a.DeviceOwner       = device.DeviceOwner;
+                    a.DeviceDateOwned   = device.DeviceDateOwned;
+                    a.DeviceDateCreated = a.DeviceDateCreated;
+                    a.DeviceCreatedBy   = a.DeviceCreatedBy;
+                    a.DeviceDateModified = DateTime.Now;
+                    a.DeviceModifiedBy  = User.Identity.Name;
+
+                    db.Entry(a).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(device);
         }
