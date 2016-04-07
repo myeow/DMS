@@ -51,6 +51,10 @@ namespace DMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DeviceSpecsContentId,DeviceSpecsCatId,DeviceId,DeviceSpecsContentVal,DeviceSpecsContentDateCreated,DeviceSpecsContentCreatedBy,DeviceSpecsContentDateModified,DeviceSpecsContentModifiedBy")] DeviceSpecsContent deviceSpecsContent)
         {
+            deviceSpecsContent.DeviceSpecsContentDateCreated    = DateTime.Now;
+            deviceSpecsContent.DeviceSpecsContentDateModified   = DateTime.Now;
+            deviceSpecsContent.DeviceSpecsContentCreatedBy      = User.Identity.Name;
+            deviceSpecsContent.DeviceSpecsContentModifiedBy     = User.Identity.Name;
             if (ModelState.IsValid)
             {
                 db.DeviceSpecsContents.Add(deviceSpecsContent);
@@ -66,6 +70,7 @@ namespace DMS.Controllers
         // GET: DeviceSpecsContents/Edit/5
         public ActionResult Edit(int? id)
         {
+            
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -87,10 +92,26 @@ namespace DMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "DeviceSpecsContentId,DeviceSpecsCatId,DeviceId,DeviceSpecsContentVal,DeviceSpecsContentDateCreated,DeviceSpecsContentCreatedBy,DeviceSpecsContentDateModified,DeviceSpecsContentModifiedBy")] DeviceSpecsContent deviceSpecsContent)
         {
+            
             if (ModelState.IsValid)
             {
-                db.Entry(deviceSpecsContent).State = EntityState.Modified;
-                db.SaveChanges();
+
+                var a = db.DeviceSpecsContents.Where(x => x.DeviceSpecsContentId == deviceSpecsContent.DeviceSpecsContentId).FirstOrDefault();
+
+                if (a != null)
+                {
+                    a.DeviceSpecsCatId              = deviceSpecsContent.DeviceSpecsCatId;
+                    a.DeviceId                      = deviceSpecsContent.DeviceId;
+                    a.DeviceSpecsContentVal         = deviceSpecsContent.DeviceSpecsContentVal;
+                    a.DeviceSpecsContentDateCreated = a.DeviceSpecsContentDateCreated;
+                    a.DeviceSpecsContentCreatedBy   = a.DeviceSpecsContentCreatedBy;
+                    a.DeviceSpecsContentDateModified = DateTime.Now;
+                    a.DeviceSpecsContentModifiedBy  = User.Identity.Name;
+
+                    db.Entry(a).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+
                 return RedirectToAction("Index");
             }
             ViewBag.DeviceId = new SelectList(db.Devices, "DeviceId", "DeviceName", deviceSpecsContent.DeviceId);

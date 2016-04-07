@@ -23,16 +23,20 @@ namespace DMS.Models
         public string DeviceOwner { get; set; }
 
         public virtual ICollection<DeviceSpecsContent> Specifications { get; set; }
+        public virtual ICollection<DeviceLog> Logs { get; set; }
+
+        [Display(Name = "Date Owned")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime DeviceDateOwned { get; set; }
 
         [Display(Name = "Date Created")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime DeviceDateCreated { get; set; }
         [Display(Name = "Created By")]
         public string DeviceCreatedBy { get; set; }
         [Display(Name = "Date Modified")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime DeviceDateModified { get; set; }
         [Display(Name = "Modified By")]
         public string DeviceModifiedBy { get; set; }
@@ -56,14 +60,12 @@ namespace DMS.Models
         public string DeviceSpecsContentVal { get; set; }
 
         [Display(Name = "Date Created")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime DeviceSpecsContentDateCreated { get; set; }
         [Display(Name = "Created By")]
         public string DeviceSpecsContentCreatedBy { get; set; }
         [Display(Name = "Date Modified")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime DeviceSpecsContentDateModified { get; set; }
         [Display(Name = "Modified By")]
         public string DeviceSpecsContentModifiedBy { get; set; }
@@ -83,43 +85,34 @@ namespace DMS.Models
         public virtual ICollection<DeviceSpecsContent> Specifications { get; set; }
        
         [Display(Name = "Date Created")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime DeviceSpecsCatDateCreated { get; set; }
         [Display(Name = "Created By")]
         public string DeviceSpecsCatCreatedBy { get; set; }
         [Display(Name = "Date Modified")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime DeviceSpecsCatDateModified { get; set; }
         [Display(Name = "Modified By")]
         public string DeviceSpecsCatModifiedBy { get; set; }
 
     }
-    /*
+    
     public class DeviceLog
     {
         [Key]
         [DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
         public int DeviceLogId { get; set; }
 
+        [Display(Name = "Devices")]
         public int DeviceId { get; set; }
-
-        //Foreign Key
-        //[Display(Name = "Device")]
-        //public int DeviceId { get; set; }
-        //[ForeignKey("DeviceID")]
-
-        //public ICollection<Device> Devices { get; set; }
-
-
+        public virtual Device Devices { get; set; }
         public string DeviceLogOldOwner { get; set; }
         public string DeviceLogNewOwner { get; set; }
 
         [Display(Name = "Date Created")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime DeviceLogDateCreated { get; set; }
+        [Display(Name = "Created By")]
         public string DeviceLogCreatedBy { get; set; }
-    }*/
+    }
 }

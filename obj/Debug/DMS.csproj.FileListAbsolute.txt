@@ -61,3 +61,7 @@ D:\work\DMS\DMS\DMS\obj\Debug\DMS.dll
 D:\work\DMS\DMS\DMS\obj\Debug\DMS.pdb
 D:\work\DMS\DMS\DMS\obj\Debug\DMS.Migrations.Init.resources
 D:\work\DMS\DMS\DMS\obj\Debug\DMS.csproj.GenerateResource.Cache
+D:\work\DMS\DMS\DMS\obj\Debug\DMS.Migrations.RemoveSomeConstraints.resources
+D:\work\DMS\DMS\DMS\obj\Debug\DMS.Migrations.AddOwnedDate.resources
+D:\work\DMS\DMS\DMS\obj\Debug\DMS.Migrations.AddOwnedDate1.resources
+D:\work\DMS\DMS\DMS\obj\Debug\DMS.Migrations.update.resources

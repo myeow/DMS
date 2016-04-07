@@ -181,6 +181,22 @@
     <Compile Include="Migrations\201604060748499_Init.Designer.cs">
       <DependentUpon>201604060748499_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604060901579_RemoveSomeConstraints.cs" />
+    <Compile Include="Migrations\201604060901579_RemoveSomeConstraints.Designer.cs">
+      <DependentUpon>201604060901579_RemoveSomeConstraints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604060919064_AddOwnedDate.cs" />
+    <Compile Include="Migrations\201604060919064_AddOwnedDate.Designer.cs">
+      <DependentUpon>201604060919064_AddOwnedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604060921094_AddOwnedDate1.cs" />
+    <Compile Include="Migrations\201604060921094_AddOwnedDate1.Designer.cs">
+      <DependentUpon>201604060921094_AddOwnedDate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604070213495_update.cs" />
+    <Compile Include="Migrations\201604070213495_update.Designer.cs">
+      <DependentUpon>201604070213495_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Device.cs" />
@@ -279,6 +295,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604060748499_Init.resx">
       <DependentUpon>201604060748499_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604060901579_RemoveSomeConstraints.resx">
+      <DependentUpon>201604060901579_RemoveSomeConstraints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604060919064_AddOwnedDate.resx">
+      <DependentUpon>201604060919064_AddOwnedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604060921094_AddOwnedDate1.resx">
+      <DependentUpon>201604060921094_AddOwnedDate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604070213495_update.resx">
+      <DependentUpon>201604070213495_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
